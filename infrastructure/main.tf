@@ -334,7 +334,7 @@ resource "aws_ecs_capacity_provider" "ec2_gpu" {
 
     managed_scaling {
       status          = "ENABLED"
-      target_capacity = 100
+      target_capacity = 50
     }
   }
 }
@@ -677,10 +677,12 @@ resource "aws_ecr_repository" "search_ui" {
   force_delete = true
 }
 
-# Following example in https://github.com/kreuzwerker/terraform-provider-docker/issues/3
+# Following example in https://registry.terraform.io/providers/kreuzwerker/docker/3.0.0/docs/resources/registry_image
 resource "docker_registry_image" "search_api" {
+  name = docker_image.search_api_image.name
+}
+resource "docker_image" "search_api_image" {
   name = "${local.aws_ecr_url}/${aws_ecr_repository.search_api.name}:latest"
-
   build {
     context    = "../application/backend/"
     dockerfile = "search-api.Dockerfile"
@@ -688,6 +690,10 @@ resource "docker_registry_image" "search_api" {
 }
 
 resource "docker_registry_image" "search_ui" {
+  name = docker_image.search_ui_image.name
+}
+
+resource "docker_image" "search_ui_image" {
   name = "${local.aws_ecr_url}/${aws_ecr_repository.search_ui.name}:latest"
 
   build {
@@ -700,6 +706,10 @@ resource "docker_registry_image" "search_ui" {
 ### OpenSearch cluster ###
 resource "random_password" "password" {
   length           = 16
+  min_upper = 1
+  min_lower = 1
+  min_numeric = 1
+  min_special = 1
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
