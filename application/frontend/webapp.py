@@ -15,7 +15,7 @@ import streamlit as st
 from annotated_text import annotation
 from markdown import markdown
 
-from ui.utils import haystack_is_ready, query, send_feedback, upload_doc, haystack_version, get_backlink
+from utils import haystack_is_ready, query, send_feedback, upload_doc, haystack_version, get_backlink
 
 
 # Adjust to a question that you would like users to see in the search bar when they load the UI:
