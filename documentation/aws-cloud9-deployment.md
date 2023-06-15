@@ -78,7 +78,7 @@ In your AWS Cloud9 environments terminal navigate to <br>
 `cd ~/environment/semantic-search-aws-docs/ingestion`. 
 * If you want to ingest the AWS documentation follow the <br> **[Ingest AWS Documentation instructions](./ingest-aws-documentation.md)**.
 * If you want to ingest your documents from a URL (for example from Amazon S3) follow the <br> **[Ingest Documents from URL instructions](./ingest-documents-from-url.md)**.
-* If instead you like to make local documents searchable follow the <br>**[Local Documents Ingestion instructions](./ingest-custom-local-wdocuments.md)**.
+* If instead you like to make local documents searchable follow the <br>**[Local Documents Ingestion instructions](./ingest-custom-local-documents.md)**.
 
 ### Clean up Ingestion
 After ingesting your documents you can remove the ingestion resources. Follow the [Clean up Ingestion Resources instructions](./clean-up-ingestion-resources.md) to clean up the ingestion resources.
