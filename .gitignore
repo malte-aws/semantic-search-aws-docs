@@ -8,3 +8,6 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+**/node_modules/*
+*.DS_store
